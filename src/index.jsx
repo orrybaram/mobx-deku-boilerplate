@@ -1,27 +1,15 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
+import { render, tree } from 'deku';
+import element from 'magic-virtual-element';
 import AppState from './AppState';
 import App from './App';
+import {autorun} from 'mobx';
 
 const appState = new AppState();
 
-render(
-  <AppContainer>
+autorun(() => render(tree(
+  <div>
+hahahah
     <App appState={appState} />
-  </AppContainer>,
+  </div>),
   document.getElementById('root')
-);
-
-if (module.hot) {
-  module.hot.accept('./App', () => {
-    const NextApp = require('./App').default;
-
-    render(
-      <AppContainer>
-        <NextApp appState={appState} />
-      </AppContainer>,
-      document.getElementById('root')
-    );
-  });
-}
+));

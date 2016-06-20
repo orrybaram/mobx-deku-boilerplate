@@ -2,16 +2,17 @@ var path = require('path');
 var webpack = require('webpack');
 
 module.exports = {
-  devtool: 'eval',
+  devtool: '#source-map',
   entry: [
-    'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
+    'webpack-hot-middleware/client',
     './src/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
+    library: 'src',
     publicPath: '/static/'
   },
   plugins: [

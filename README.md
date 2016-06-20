@@ -14,7 +14,3 @@ npm start
 open http://localhost:3000
 ```
 
-
-### Credits
-
-* [Mendix](http://github.com/mendix) for providing the opportunity to battle test this approach (we're hiring!).
