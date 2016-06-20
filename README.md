@@ -1,10 +1,10 @@
-mobx-react-boilerplate
+mobx-deku-boilerplate
 =====================
 
-A minimal application that combines [MobX](https://mobxjs.github.io/mobx) with [React](https://facebook.github.io/react).
+A minimal application that combines [MobX](https://mobxjs.github.io/mobx) with [deku](https://github.com/anthonyshort/deku).
 Supports ES6 and JSX compilation through babel.
 
-* For a more sophisticated project to start with, see the full TodoMVC implementation: [mobx-react-todomvc](https://github.com/mobxjs/mobx-react-todomvc).
+A fork of https://github.com/mobxjs/mobx-react-boilerplate
 
 ### Run the example
 
