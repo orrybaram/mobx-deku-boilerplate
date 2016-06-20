@@ -8,7 +8,6 @@ const appState = new AppState();
 
 autorun(() => render(tree(
   <div>
-hahahah
     <App appState={appState} />
   </div>),
   document.getElementById('root')

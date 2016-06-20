@@ -10,6 +10,9 @@ function render ({props}) {
       <button onClick={onReset}>
         Seconds passed: {props.appState.timer}
       </button>
+      <div>{props.appState.counter}</div>
+      <button onClick={props.appState.increaseCounter()}>+</button>
+      <button onClick={props.appState.decreaseCounter()}>+</button>
     </div>
   );
   function onReset () {
