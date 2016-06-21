@@ -6,9 +6,11 @@ import {autorun} from 'mobx';
 
 const appState = new AppState();
 
-autorun(() => render(tree(
+console.log('App', App);
+
+render(tree(
   <div>
     <App appState={appState} />
   </div>),
   document.getElementById('root')
-));
+);

@@ -1,22 +1,34 @@
 import element from 'magic-virtual-element';
+import observer from './lib/mobx-deku';
 
-const App = {
-  render
-};
-
-function render ({props}) {
-  return (
-    <div>
-      <button onClick={onReset}>
-        Seconds passed: {props.appState.timer}
-      </button>
-      <div>{props.appState.counter}</div>
-      <button onClick={props.appState.increaseCounter()}>+</button>
-      <button onClick={props.appState.decreaseCounter()}>+</button>
-    </div>
-  );
-  function onReset () {
-    props.appState.resetTimer();
+export default observer({
+  render ({props}) {
+    return (
+      <div>
+        <h1>Timer Example</h1>
+        <h2>{props.appState.timerCount}s</h2>
+        <button onClick={onReset}>Reset</button>
+        <h1>Counter Example</h1>
+        <h2>{props.appState.counter}</h2>
+        <button onClick={decreaseCounter}>-</button>
+        <button onClick={increaseCounter}>+</button>
+        <h1>Input Example</h1>
+        <div>{props.appState.exampleText}</div>
+        <input value={props.appState.exampleText} onKeyDown={updateText}/>
+      </div>
+    );
+    function onReset () {
+      props.appState.resetTimer();
+    }
+    function increaseCounter () {
+      props.appState.increaseCounter();
+    }
+    function decreaseCounter () {
+      props.appState.decreaseCounter();
+    }
+    function updateText (e) {
+      props.appState.updateText(e);
+    }
   }
-}
-export default App;
+})
+

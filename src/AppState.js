@@ -1,22 +1,26 @@
 import { observable } from 'mobx';
 
 class AppState {
-  @observable timer = 0;
+  @observable timerCount = 0;
   @observable counter = 0;
+  @observable exampleText = 'Example text';
 
-  constructor() {
+  constructor () {
     setInterval(() => {
-      this.timer += 1;
+      this.timerCount += 1;
     }, 1000);
   }
-  resetTimer() {
-    this.timer = 0;
+  resetTimer () {
+    this.timerCount = 0;
   }
-  increaseCounter() {
+  increaseCounter () {
     this.counter += 1;
   }
-  decreaseCounter() {
+  decreaseCounter () {
     this.counter -= 1;
+  }
+  updateText (e) {
+    this.exampleText = e.target.value;
   }
 }
 
