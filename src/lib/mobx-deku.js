@@ -4,12 +4,18 @@ export default function observer (target) {
   let _unsubscriber = null;
   let _render = target.render;
   let _beforeUnmount = target.beforeUnmount;
+  let _updateCount = 0;
 
-  target.render = (props) => {
-    if (_unsubscriber) _unsubscriber();
-    _unsubscriber = autorun(() => _render(props));
-    target.render = _render;
-    return _render(props);
+  target.render = (component, setState) => {
+    var result;
+    if (_unsubscriber) {
+      _unsubscriber();
+    }
+    _unsubscriber = autorun(() => {
+      result = _render(component, setState);
+      setState({ __updates: _updateCount++ });
+    });
+    return result;
   };
 
   target.beforeUnmount = (component, el) => {
@@ -23,7 +29,7 @@ export default function observer (target) {
 
   // If there's already a shouldUpdate, don't overwrite it.
   target.shouldUpdate = target.shouldUpdate || _shouldUpdate;
-  console.log(target);
+
   return target;
 }
 
