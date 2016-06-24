@@ -1,0 +1,9 @@
+body {
+  font-family: sans-serif;
+}
+.counter {
+  margin: 0 auto;
+}
+.counter__display {
+  font-size: 100px;
+}

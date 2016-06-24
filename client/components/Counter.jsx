@@ -4,10 +4,10 @@ import {observer} from 'mobx-deku';
 export default observer({
   render ({props}) {
     return (
-      <div>
-        <div class='app'>{props.state.counter}</div>
-        <button onClick={decreaseCounter}>-</button>
-        <button onClick={increaseCounter}>+</button>
+      <div class='counter'>
+        <div class='counter__display'>{props.state.counter}</div>
+        <button class='button' onClick={decreaseCounter}>-</button>
+        <button class='button' onClick={increaseCounter}>+</button>
       </div>
     );
     function increaseCounter () {
