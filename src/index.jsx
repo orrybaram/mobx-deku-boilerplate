@@ -1,28 +1,24 @@
 import {render, tree} from 'deku';
+import {observable, action} from 'mobx';
+import App from './app';
 import element from 'magic-virtual-element';
-import {observable} from 'mobx';
-import {observer} from 'mobx-deku';
 
 class AppState {
   @observable counter = 0;
-  increaseCounter () {
+  @action increaseCounter () {
     this.counter += 1;
   }
 }
+
 const appState = new AppState();
+function update (Application) {
+  render(tree(<Application appState={appState} />), document.querySelector('#root'));
+}
+update(App);
 
-const App = observer({
-  render ({props}) {
-    return (
-      <div>
-        <div class='app'>{props.appState.counter}</div>
-        <button onClick={onClick}>+</button>
-      </div>
-    );
-    function onClick () {
-      props.appState.increaseCounter();
-    }
-  }
-});
-
-render(tree(<App appState={appState} />), document.querySelector('#root'));
+if (module.hot) {
+  module.hot.accept('./app.jsx', function() {
+    let updatedApp = require('./app.jsx').default;
+    update(updatedApp);
+  });
+}
