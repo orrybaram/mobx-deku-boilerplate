@@ -25,14 +25,9 @@ module.exports = {
     loaders: [{
       test: /\.jsx?$/,
       loader: 'babel',
-      include: path.join(__dirname, 'src'),
-      exclude: path.join(__dirname, 'node_modules'),
-      query: {
-        presets: [
-          'babel-preset-es2015',
-          'babel-preset-stage-1'
-        ].map(require.resolve)
-      }
+      include: [
+        path.join(__dirname, 'src')
+      ]
     }]
   }
 };
