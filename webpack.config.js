@@ -7,12 +7,12 @@ module.exports = {
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
     'webpack-hot-middleware/client',
-    './src/index'
+    './client/index'
   ],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
-    library: 'src',
+    library: 'client',
     publicPath: '/static/'
   },
   plugins: [
@@ -26,7 +26,7 @@ module.exports = {
       test: /\.jsx?$/,
       loader: 'babel',
       include: [
-        path.join(__dirname, 'src')
+        path.join(__dirname, 'client')
       ]
     }]
   }
