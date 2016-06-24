@@ -37,6 +37,7 @@
   "dependencies": {
     "deku": "^1.0.0",
     "magic-virtual-element": "^1.0.6",
-    "mobx": "^2.2.2"
+    "mobx": "^2.2.2",
+    "mobx-deku": "^1.0.1"
   }
 }
