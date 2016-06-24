@@ -11,16 +11,14 @@ module.exports = {
     './client/index'
   ],
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'static'),
     filename: 'bundle.js',
     library: 'client',
     publicPath: '/static/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('style.css', {
-      allChunks: true
-    })
+    new ExtractTextPlugin('[name].css')
   ],
   resolve: {
     extensions: ['', '.js', '.jsx']
@@ -35,7 +33,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
     }]
   }
 };
