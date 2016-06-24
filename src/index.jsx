@@ -1,8 +1,7 @@
-import { render, tree } from 'deku';
+import {render, tree} from 'deku';
 import element from 'magic-virtual-element';
 import AppState from './AppState';
 import App from './App';
-import {autorun} from 'mobx';
 
 const appState = new AppState();
 

@@ -1,5 +1,5 @@
 import element from 'magic-virtual-element';
-import observer from './lib/mobx-deku';
+import {observer} from 'mobx-deku';
 
 export default observer({
   render ({props}) {
