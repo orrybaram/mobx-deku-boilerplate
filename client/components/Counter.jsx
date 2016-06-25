@@ -6,8 +6,10 @@ export default observer({
     return (
       <div class='counter'>
         <div class='counter__display'>{props.state.counter}</div>
-        <button class='button' onClick={decreaseCounter}>-</button>
-        <button class='button' onClick={increaseCounter}>+</button>
+        <div>
+          <button class='button' onClick={decreaseCounter}>-</button>
+          <button class='button' onClick={increaseCounter}>+</button>
+        </div>
       </div>
     );
     function increaseCounter () {
