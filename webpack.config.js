@@ -33,7 +33,7 @@ module.exports = {
     },
     {
       test: /\.css$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
+      loader: 'style-loader!css-loader!postcss-loader'
     }]
   }
 };
